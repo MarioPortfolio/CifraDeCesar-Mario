@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-<!--
+  </head>
+  <link rel="stylesheet" href="style.css">
+  <body>
+    <!--
     Cifra de Cesar
 
     Esta é um programa que permite a entrada de um texto e sua codificação ou decodificação.
@@ -51,57 +52,50 @@
     
 -->
 
+    <header>
+        <h1>Cifra de Cezar</h1>
+    </header>
 
+    <section>
+        <div>
+            <!--Titulo-->
+            <p>Insira seu texto:</p>
+            
+            <!--Area de preenchimento da informação-->
+            <textarea id="idMensagem" cols="40" rows="4"></textarea>
+            <br /><br />
+            <!------------------------------------------------------------>
 
+            <!--Escolhe oque será executado-->
+            <input type="radio" name="radEscolha" id="idCriptografar" checked>
+            <label for="idCifrar">Criptografar</label>
 
-<h1> Cifra de Cezar</h1>
+            <input type="radio" name="radEscolha" id="idDesCriptografar">
+            <label for="idDesCriptografar">DesCriptografar</label>
+            <!------------------------------------------------------------>
 
-<label for="text">Insira seu texto: </label> 
-<br>
-<textarea id="text" cols="40" rows="4"></textarea>
-<br><br>
+            <!--Chave criptografica e botão de execusão-->
+            <p>Informe a chave de criptografia de 1 até 26:</p>
+            <input type="number" id="idChaveCriptografia" />
+            <br /><br />
 
-<label for="cipherKey" > Informe a chave de criptografia de 1 até 26:</label>
-<input type="number" id="cipherKey">
-<br><br>
+            <button onclick="aplicarCript()">Criptografar</button>
+            <br /><br />
+            <!------------------------------------------------------------>
 
-<button onclick="aplicarCript()">Criptografar</button>
-<br><br>  
+            <!--Resultado-->
+            <p>Resultado:</p>
+            <textarea id="idResulto" cols="40" rows="4" readonly></textarea>
+            <!------------------------------------------------------------>
 
-<label for="result">Resultado:</label>
-<br>
-<textarea id="result" cols="40" rows="4" readonly></textarea>
-<br>
+        </div>
+    </section>
 
-<script>
-    function aplicarCript() {
-        const text = document.getElementById("text").value;
-        const resultTextArea = document.getElementById("result");
-        const cipherKey = parseInt(document.getElementById("cipherKey").value);
+    <footer>
+        <!--Rodapé-->
+        <p>&copy; Entra21 2023 - [Mário]</p>
+    </footer>
 
-        let result = "";
-        for (let i = 0; i < text.length; i++) {
-            const char = text[i];
-            if (char.match(/[a-zA-Z]/)) {
-                let charCode = char.charCodeAt(0);
-                charCode += cipherKey;
-                if (char.match(/[A-Z]/)) {
-                    if (charCode < 65) charCode += 26;
-                    if (charCode > 90) charCode -= 26;
-                } else {
-                    if (charCode < 97) charCode += 26;
-                    if (charCode > 122) charCode -= 26;
-                }
-                result += String.fromCharCode(charCode);
-            } else {
-                result += char;
-            }    
-        }
-        resultTextArea.value = result; 
-        //console.log(resultadoTextArea.value);          
-    }
-    
-</script>
-
-</body>
-</html> 
+    <script src="script.js"></script>
+  </body>
+</html>
