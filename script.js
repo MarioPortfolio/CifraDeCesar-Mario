@@ -30,7 +30,7 @@ function aplicarCript() {
                 result += char;
             }
             }
-            resultadoCriptografia.value = result;
+            resultadoCriptografia.value = result.trim();
             
 
         //Teste se foi escolhido a caixa 1 ou 0       
@@ -52,9 +52,9 @@ function aplicarCript() {
             } else {
                 result += char;
             }            
-            resultadoCriptografia.value = result;
+            resultadoCriptografia.value = result.trim();
             
-            //Teste se numeros   
+            //Teste de numeros   
             }if (radioEscolha[0].checked) {
                 // Lógica para cifrar com base na posição no alfabeto
                 let result = "";
@@ -69,10 +69,7 @@ function aplicarCript() {
                 }
             resultadoCriptografia.value = result.trim(); // Remove espaços em branco extras teste"
             }
-            ""
-
-
-            
+                        
                 
         } 
                 
